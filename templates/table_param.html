@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p></p>
+<h2 align="center">Оформление каюты</h2>
+{% if status == 'adult' %}
+    {% set img = '../../static/img/adult.jpg' %}
+    {% if sex == 'male' %}
+        {% set color = 'blue' %}
+    {% else %}
+        {% set color = 'red' %}
+    {% endif %}
+{% else %}
+    {% set img = '../../static/img/child.jpg' %}
+    {% if sex == 'male' %}
+        {% set color = 'dodgerblue' %}
+    {% else %}
+        {% set color = 'deeppink' %}
+    {% endif %}
+{% endif %}
+<table align="center">
+    <thead>
+        <tr>
+            <th bgcolor="E1E1E1" width="400px">Цвет стен</th>
+            <th bgcolor="E1E1E1" width="400px">Эмблема</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td bgcolor="{{color}}" width="400px"></td>
+            <td><img src="{{img}}" width="400px" height="300px"></td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

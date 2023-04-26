@@ -75,5 +75,16 @@ def distribution():
     return render_template('distribution.html', title='По каютам!', lst=lst)
 
 
+@app.route('/table_param/<sex>/<age>')
+def table_param(sex, age):
+    if int(age) >= 21:
+        status = 'adult'
+    else:
+        status = 'child'
+    return render_template('table_param.html', title='Оформление кают', sex=sex, status=status)
+
+
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
